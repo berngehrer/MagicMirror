@@ -37,7 +37,7 @@ namespace MagicMirror
         {
             get
             {
-                return new Uri(@"https://calendar.google.com/calendar/ical/marco.berngehrer%40googlemail.com/private-eb8f95c9422e0e1f65d8f5ae47c00a2d/basic.ics");
+                return new Uri(@"");
             }
         }
 
@@ -56,7 +56,7 @@ namespace MagicMirror
 
         public Uri GetRelativeWeatherUri(WeatherType weather)
         {
-            var template = "/data/2.5/{0}?id=6556201&mode=json&units=metric&lang=de&APPID=4f6a3ce832940a448a6eb191a3ed7cda&cnt=5";
+            var template = "";
             
             string key = "";            
             switch (weather)
