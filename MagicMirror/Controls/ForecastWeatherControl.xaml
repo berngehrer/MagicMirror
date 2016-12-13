@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="MagicMirror.Controls.ForecastWeatherControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MagicMirror.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.DataContext>
+        <local:ForecastWeatherControlViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="ForecastItemTemplate" x:DataType="local:ForecastDisplayContainer">
+            <Grid Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Forecast -->
+                <TextBlock Text="{Binding Header}" FontSize="16" HorizontalAlignment="Center" />
+                <Image Grid.Row="1" Source="{Binding Original, Converter={StaticResource IconConverter}}" Stretch="Uniform" Height="40" />
+                <TextBlock Grid.Row="2" Text="{Binding Temperature}" FontSize="17" HorizontalAlignment="Center" FontWeight="SemiBold" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <ItemsControl ItemsSource="{Binding Forecasts}" ItemTemplate="{StaticResource ForecastItemTemplate}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
+
+</UserControl>

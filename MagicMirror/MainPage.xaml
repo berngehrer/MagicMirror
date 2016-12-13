@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="MagicMirror.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MagicMirror"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ctrl="using:MagicMirror.Controls"
+    mc:Ignorable="d">
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <ctrl:CurrentWeatherControl Margin="30,20" />
+            <ctrl:ForecastWeatherControl Margin="30,0" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+            <ctrl:TimeControl Margin="30,20,40,30" />        
+            <ctrl:CalendarControl Margin="30,0,40,0" />
+        </StackPanel>
+
+        <ctrl:RssControl Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="30" />
+    </Grid>
+</Page>
